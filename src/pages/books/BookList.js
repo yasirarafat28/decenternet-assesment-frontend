@@ -172,7 +172,7 @@ function BookList() {
                       </Table>
                     </TableContainer>
 
-                    {!Number(books.length) && (
+                    {!Number(books.length) && !isLoading && (
                       <h4 style={{ width: "100%", textAlign: "center" }}>
                         No records found
                       </h4>
