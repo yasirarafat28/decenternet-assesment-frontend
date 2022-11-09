@@ -57,7 +57,7 @@ function BookUpdate() {
     mutation.mutate(data);
   };
 
-  const { isLoading, refetch } = useQuery("book-info", () => {
+  const { isLoading, refetch } = useQuery("book-info-for-update-page", () => {
     return axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/book/${id}`, {
         headers: {
