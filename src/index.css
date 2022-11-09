@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/* Typography */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+/* Normalize  */
+html {
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  color: #070b28;
+  overflow-x: hidden;
+  background-color: #f8f8fb;
+  font-size: 16px;
+  padding: 0px !important;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: normal;
+  min-height: 100%;
+  float: left;
+  position: relative;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+p {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 1.0833333333;
+}
+
+h2 {
+  font-size: 52px;
+  line-height: 1.4444444444;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 1.0833333333;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 1.2380952381;
+}
+
+p {
+  font-size: 15px;
+  color: #070b28;
+  line-height: 1.625;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none;
+}
+
+a i {
+  padding: 0 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Header Area Start */
+.header {
+  background: #f8f8fb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header.nav-fixed {
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header .mainmenu-area .navbar {
+  padding: 0px 0px;
+  position: relative;
+  display: flex;
+}
+
+.header .mainmenu-area .navbar-brand {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header .mainmenu-area .navbar-brand img {
+  max-width: 200px;
+  height: 40px;
+}
+
+.header .mainmenu-area .nav-item {
+  color: #222;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  padding: 10px 16px;
+  transition: all linear 0.3s;
+}
+
+/* Header Area End */
+
+/* Footer Area Start */
+.footer {
+  padding-top: 30px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background: #fff;
+}
+
+.footer .copy-bg {
+  padding: 22px 15px 10px;
+  text-align: center;
+}
+
+.footer .copy-bg p {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 28px;
+  color: #070b28;
+  font-weight: 600;
+}
+
+/* Footer End */
+.box {
+  background-color: #ffffff;
+  margin: 15px 0;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 28px rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 18px;
+}
+
+.contact-container {
+  margin: 150px auto !important;
+  padding-bottom: 50px;
+}
+
+.auth-container {
+  margin: 150px auto 0 !important;
+  max-width: 600px !important;
+}
+
+.auth-container .contact-area,
+.contact-container .contact-area {
+  border-radius: 20px;
+
+  padding: 40px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.105);
+}
+
+.auth-container .contact-area h2,
+.contact-container .contact-area h2 {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.game-play-section {
+  padding: 50px 0px;
+}
+
+/* Contact Area End */
+
+.content-wrapper {
+  margin-top: 125px;
+}
