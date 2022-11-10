@@ -43,6 +43,10 @@ function BookUpdate() {
         navigate(`/books`);
       })
       .catch((error) => {
+        if (error.response.status === 401) {
+          auth.unAuthenticate();
+          window.location = "/login";
+        }
         if (error?.response?.data?.errors?.length) {
           setErrors(error?.response?.data?.errors);
         }
@@ -73,8 +77,11 @@ function BookUpdate() {
       .then((response) => {
         setBook(response?.data?.data);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        if (error.response.status === 401) {
+          auth.unAuthenticate();
+          window.location = "/login";
+        }
       });
   });
 

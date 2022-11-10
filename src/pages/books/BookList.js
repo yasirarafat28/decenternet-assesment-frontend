@@ -51,6 +51,12 @@ function BookList() {
             page: responseData.page,
             pagingCounter: responseData.pagingCounter,
           });
+        })
+        .catch((error) => {
+          if (error.response.status == 401) {
+            auth.unAuthenticate();
+            window.location = "/login";
+          }
         });
     }
   );

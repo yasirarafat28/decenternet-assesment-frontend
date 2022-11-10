@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Decenternet Book Recorder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Decenternet Book Recorder is a simple book info recording system developed with MERN (MongoDB, ExpressJS, ReactJS, NodeJS) stack.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+- Backend https://decenternet-assessment-backend.herokuapp.com
+- Frontend https://decenternet-assessment-frontend.vercel.app
 
-### `npm start`
+## Process to install MERN stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For Backend Server:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Creating a repository for backend and initializing npm using `npm init`
+- Installed necessary packages like express, bcryptjs, body-parser, cors, mongoose, Validator etc and utility library like underscore
+- Created a cluster on mongoDB cluster and configured the database into the project
+- Configured .env file with the respected values which is give in .env.example file
+- Configured ` server.js` & `app.js` file
+- Installed `nodemon` as watcher for the local development
+- Then worked on the main task. :D
+- For Client Server:
+- Installed ReactJs by ` create-react-app`
+- Installed necessary packages like react-hook-form, axios, @mui/material, react-query, etc.
+- Configured .env file with the respected values which is give in .env.example file-
+- Then worked on the main task. :D
 
-### `npm test`
+## Usage of Linter
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I have used ESLint for the development. I just extends the configuration form `eslint:recommended `. Steps given below:
 
-### `npm run build`
+- Installed eslint by the command `npm i -D eslint`
+- Initializing configuration by the command `npx eslint init`
+- Extends recommended configuration form `eslint:recommended `
+- Configured `server.js & app.js` file
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Decenternet Book Recorder requires [Node.js](https://nodejs.org/) v10+ to run.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### Backend:
 
-### `npm run eject`
+- Clone or download compressed file from https://github.com/yasirarafat28/decenternet-assessment-backend.git
+- Upzip folder if you download the compressed file
+- configure .env file. (You can copy from .env.example file as well)
+- Install the dependencies and devDependencies and start the server.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For development environments...
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+npm i
+npm run dev
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For production environments...
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+npm i
+NODE_ENV=production node server.js
+```
 
-## Learn More
+##### Frontend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone or download compressed file from https://github.com/yasirarafat28/decenternet-assessment-frontend.git
+- Upzip folder if you download the compressed file
+- configure .env file. (You can copy from .env.example file as well)
+- Install the dependencies and devDependencies and start the server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For development environments...
 
-### Code Splitting
+```sh
+npm i
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+run `npm run build` to build the project.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Thank You!**

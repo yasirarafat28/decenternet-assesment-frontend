@@ -40,6 +40,10 @@ function BookCreate() {
         navigate(`/books`);
       })
       .catch((error) => {
+        if (error.response.status === 401) {
+          auth.unAuthenticate();
+          window.location = "/login";
+        }
         if (error?.response?.data?.errors?.length) {
           setErrors(error?.response?.data?.errors);
         }

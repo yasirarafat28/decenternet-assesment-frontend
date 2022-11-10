@@ -29,8 +29,11 @@ function BookDetails() {
       .then((response) => {
         setBook(response?.data?.data);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        if (error.response.status === 401) {
+          auth.unAuthenticate();
+          window.location = "/login";
+        }
       });
   });
   useEffect(() => {

@@ -27,6 +27,10 @@ function Authenticated(props) {
         .catch((error) => {
           console.log(error.message);
           removeTokenFromCache(auth?.token);
+          if (error.response.status === 401) {
+            auth.unAuthenticate();
+            window.location = "/login";
+          }
         })
         .finally(() => {
           setLoading(false);
