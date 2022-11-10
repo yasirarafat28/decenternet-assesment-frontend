@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <p>Copyright © 2021.All Rights Reserved</p>
+              <p>Copyright © 2022.All Rights Reserved</p>
             </div>
           </div>
         </div>
