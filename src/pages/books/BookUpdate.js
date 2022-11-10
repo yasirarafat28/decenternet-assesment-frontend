@@ -30,11 +30,10 @@ function BookUpdate() {
   const [book, setBook] = useState({});
   const [message, setMessage] = useState(null);
   const [errors, setErrors] = useState(initErrors);
-  const { register, handleSubmit } = useForm();
-
-  const mutation = useMutation((formData) => {
+  const { register, handleSubmit } = useForm({ mode: "onBlur" });
+  const mutation = useMutation(() => {
     return axios
-      .patch(`${process.env.REACT_APP_BACKEND_URL}/book/${id}`, formData, {
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/book/${id}`, book, {
         headers: {
           Authorization: auth?.token,
         },
@@ -51,13 +50,20 @@ function BookUpdate() {
       });
   });
 
+  const changeForm = (event) => {
+    setBook({
+      ...book,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const submitForm = (data) => {
     setErrors(initErrors);
     setMessage(null);
-    mutation.mutate(data);
+    mutation.mutate();
   };
 
-  const { isLoading, refetch } = useQuery("book-info-for-update-page", () => {
+  const bookInfo = useQuery("book-info-for-update-page", () => {
     return axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/book/${id}`, {
         headers: {
@@ -73,7 +79,7 @@ function BookUpdate() {
   });
 
   useEffect(() => {
-    refetch();
+    bookInfo.refetch();
   }, []);
   return (
     <>
@@ -91,24 +97,23 @@ function BookUpdate() {
                     ""
                   )}
 
-                  {isLoading ? (
+                  {bookInfo.isLoading ? (
                     <Skeleton variant="rectangular" height={400} />
                   ) : (
                     <>
                       <div className="left-area">
                         {/* <form onSubmit={submitForm}> */}
-                        <form
-                          onSubmit={handleSubmit((data) => submitForm(data))}
-                        >
+                        <form onSubmit={handleSubmit((data) => submitForm())}>
                           <FormControl fullWidth sx={{ mb: 2 }}>
                             <FormLabel>Name </FormLabel>
                             <TextField
                               type="text"
                               placeholder="Enter Name "
                               {...register("name")}
+                              onChange={changeForm}
                               error={errors?.email?.length}
                               helperText={errors?.email?.[0]}
-                              defaultValue={book.name}
+                              value={book.name}
                             />
                           </FormControl>
                           <FormControl fullWidth sx={{ mb: 2 }}>
@@ -119,7 +124,8 @@ function BookUpdate() {
                               {...register("author")}
                               error={errors?.author?.length}
                               helperText={errors?.author?.[0]}
-                              defaultValue={book.author}
+                              key={book?.author}
+                              value={book.author}
                             />
                             {errors?.author?.length}
                           </FormControl>
@@ -129,9 +135,10 @@ function BookUpdate() {
                               type="text"
                               placeholder="Enter Edition "
                               {...register("edition")}
+                              key={book?.edition}
                               error={errors?.email?.length}
                               helperText={errors?.email?.[0]}
-                              defaultValue={book.edition}
+                              value={book.edition}
                             />
                           </FormControl>
                           <FormControl fullWidth sx={{ mb: 2 }}>
@@ -140,9 +147,10 @@ function BookUpdate() {
                               type="text"
                               placeholder="Enter Language "
                               {...register("language")}
+                              key={book?.language}
                               error={errors?.email?.length}
                               helperText={errors?.email?.[0]}
-                              defaultValue={book.language}
+                              value={book.language}
                             />
                           </FormControl>
                           <br />

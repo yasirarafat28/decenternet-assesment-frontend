@@ -29,28 +29,31 @@ function BookList() {
   const [search, setSearch] = useState("");
   const [meta, setMeta] = useState("");
 
-  const { isLoading, refetch } = useQuery("booklist", () => {
-    return axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_URL}/book?page=${page}&q=${search}`,
-        {
-          headers: {
-            Authorization: auth?.token,
-          },
-        }
-      )
-      .then((response) => {
-        let responseData = response?.data?.data;
-        setBooks(responseData?.docs);
-        setMeta({
-          totalDocs: responseData.totalDocs,
-          limit: responseData.limit,
-          totalPages: responseData.totalPages,
-          page: responseData.page,
-          pagingCounter: responseData.pagingCounter,
+  const { isLoading, refetch, isFetched, isRefetching } = useQuery(
+    "booklist",
+    () => {
+      return axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}/book?page=${page}&q=${search}`,
+          {
+            headers: {
+              Authorization: auth?.token,
+            },
+          }
+        )
+        .then((response) => {
+          let responseData = response?.data?.data;
+          setBooks(responseData?.docs);
+          setMeta({
+            totalDocs: responseData.totalDocs,
+            limit: responseData.limit,
+            totalPages: responseData.totalPages,
+            page: responseData.page,
+            pagingCounter: responseData.pagingCounter,
+          });
         });
-      });
-  });
+    }
+  );
   useEffect(() => {
     refetch();
   }, [page, search, limit]);
@@ -67,6 +70,7 @@ function BookList() {
       })
       .catch((error) => {});
   }
+  console.log(isRefetching);
   return (
     <>
       <Header />
@@ -172,7 +176,7 @@ function BookList() {
                       </Table>
                     </TableContainer>
 
-                    {!Number(books.length) && !isLoading && (
+                    {!Number(books.length) && !isRefetching && (
                       <h4 style={{ width: "100%", textAlign: "center" }}>
                         No records found
                       </h4>
