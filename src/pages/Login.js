@@ -10,26 +10,25 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/inc/Footer";
 import Header from "../components/inc/Header";
 import { setTokenToLocalStorage } from "../utils/localStorage";
 function Login() {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
   const [message, setMessage] = useState(null);
   const [errors, setErrors] = useState({
     email: null,
     password: null,
   });
-  const mutation = useMutation((formData) => {
+  const mutation = useMutation(async (formData) => {
     return axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, formData)
       .then((response) => {
         console.log(response.data);
         setTokenToLocalStorage(response?.data?.data?.token);
         console.log(response?.data?.data?.token);
-        navigate(`/books`);
+        window.location = "/books";
       })
       .catch((error) => {
         if (error?.response?.data?.errors?.length) {
