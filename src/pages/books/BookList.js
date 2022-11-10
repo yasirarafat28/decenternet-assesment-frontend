@@ -103,6 +103,7 @@ function BookList() {
                   size="small"
                   onChange={(event) => {
                     setSearch(event.target.value);
+                    setPage(1);
                   }}
                 />
               </FormControl>
